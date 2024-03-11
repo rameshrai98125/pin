@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <% if(nav === true) { %>
+    <nav class="border-b px-4 py-2 bg-gray-200">
+      <div
+        class="flex flex-wrap items-center justify-between md:justify-around"
+      >
+        <!-- logo -->
+        <img
+          class="h-20"
+          src="https://imgs.search.brave.com/59zUeaBIdzv0qqoud2gHUFe7TA8uqU4fz7kcCFeObAE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly8xMDAw/bG9nb3MubmV0L3dw/LWNvbnRlbnQvdXBs/b2Fkcy8yMDE4LzAz/L1BpbnRlcmVzdC1s/b2dvLTUwMHgyODEu/cG5n"
+          alt="instagram"
+        />
+
+        <div class="space-x-4">
+          <a
+            class="inline-block bg-gray-500 px-2 py-1 text-white font-semibold text-sm rounded"
+            href="/profile"
+            >Profile</a
+          >
+          <a
+            class="inline-block bg-gray-500 px-2 py-1 text-white font-semibold text-sm rounded"
+            href="#"
+            >feed</a
+          >
+          <a
+            class="inline-block bg-red-500 px-2 py-1 text-white font-semibold text-sm rounded"
+            href="/logout"
+            >logout</a
+          >
+        </div>
+      </div>
+    </nav>
+    <% } %>
+  </body>
+</html>

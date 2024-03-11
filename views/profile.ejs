@@ -1,0 +1,111 @@
+<% include ./partials/header.ejs %>
+<!-- nav -->
+
+<main class="bg-gray-100 bg-opacity-25">
+  <div class="lg:w-8/12 lg:mx-auto mb-8">
+    <div class="flex justify-center w-full">
+      <header class="flex-wrap items-center w-full p-4 md:py-8">
+        <form
+          hidden
+          id="uploadform"
+          action="/fileupload"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <input type="file" name="image" />
+        </form>
+        <div class="md:ml-2">
+          <div class="w-20 relative h-20 md:w-40 mx-auto md:h-40">
+            <span
+              id="uploadicon"
+              class="absolute bottom-5 right-0 flex bg-gray-500 text-white w-8 h-8 rounded-full justify-center items-center"
+            >
+              <i class="ri-edit-2-fill"></i>
+            </span>
+            <img
+              class="object-cover h-full rounded-full w-full border-2 border-pink-600 p-1"
+              src="/images/uploads/<%= user.profileImage %>"
+              alt="profile"
+            />
+          </div>
+        </div>
+        <div class="w-full bg-gray-100 text-center">
+          <h1 class="text-2xl my-2">Ramesh</h1>
+          <h5 class="my-5">@username</h5>
+          <a class="bg-gray-300 rounded-lg px-2 py-1 my-1 text-white" href="#"
+            >edit</a
+          >
+          <br />
+          <div class="my-6 py-2">
+            <a
+              href="/add"
+              class="px-5 py-1 bg-red-500 font-semibold text-white rounded-lg"
+              >add new post</a
+            >
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="flex flex-wrap">
+      <div class="container w-52 h-40 mx-5 my-4">
+        <div class="w-full border rounded-lg overflow-hidden">
+          <div class="h-40 w-52">
+            <img
+              src="/images/uploads/<%= user.posts && user.posts[0] ? user.posts[0].image : '' %>"
+              class="w-full h-full object-cover"
+              alt="..."
+            />
+          </div>
+          <div class="p-4">
+            <a class="font-bold capitalize" href="/show/posts">all posts</a>
+            <h5
+              class="text-sm text-gray-500 font-semibold tracking-widest mb-2 uppercase"
+            >
+              <%= user && user.posts && user.posts[0] ? user.posts[0].title : ''
+              %>
+            </h5>
+            <h6 class="font-medium text-gray-500">
+              <%= user && user.posts ? user.posts.length : 0 %> pins
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="container w-52 h-40 mx-5 my-4">
+        <div class="w-full border rounded-lg overflow-hidden">
+          <img
+            src="https://cdn.pixabay.com/photo/2012/06/19/10/32/owl-50267_1280.jpg"
+            class="w-full h-full object-cover"
+            alt="..."
+          />
+          <div class="p-4">
+            <h5
+              class="text-sm text-gray-500 font-semibold tracking-widest mb-2 uppercase"
+            >
+              All pins
+            </h5>
+            <h6 class="font-medium text-gray-500">28 pins</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const uploadicon = document.querySelector("#uploadicon");
+
+  if (uploadicon) {
+    uploadicon.addEventListener("click", function () {
+      document.querySelector("#uploadform input").click();
+    });
+  }
+
+  const uploadInput = document.querySelector("#uploadform input");
+  if (uploadInput) {
+    uploadInput.addEventListener("change", function () {
+      document.querySelector("#uploadform").submit();
+    });
+  }
+</script>
+<% include ./partials/footer.ejs %>

@@ -1,0 +1,50 @@
+<% include ./partials/header.ejs %>
+
+<div class="container mx-auto p-4">
+  <h1 class="text-3xl font-bold text-center">Create a New Post</h1>
+  <form
+    class="mt-8 max-w-lg mx-auto"
+    method="POST"
+    action="/createpost"
+    enctype="multipart/form-data"
+  >
+    <div class="flex items-center mb-4">
+      <label for="file" class="mr-4">Upload an image:</label>
+      <input
+        type="file"
+        id="file"
+        name="postImage"
+        accept="image/*"
+        class="border border-gray-300 rounded p-2"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="title" class="block mb-2">Title:</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        placeholder="Enter a title"
+        class="w-full border border-gray-300 rounded p-2"
+      />
+    </div>
+    <div class="mb-4">
+      <label for="description" class="block mb-2">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        placeholder="Enter a description"
+        class="w-full border border-gray-300 rounded p-2 h-32"
+      ></textarea>
+    </div>
+    <div class="text-center pointer">
+      <input
+        value="Create post"
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+      />
+    </div>
+  </form>
+</div>
+
+<% include ./partials/footer.ejs %>

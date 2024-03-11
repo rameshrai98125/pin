@@ -1,0 +1,30 @@
+<% include ./partials/header.ejs %>
+<div class="flex flex-wrap">
+  <% user.posts.forEach(function(elem){ %>
+  <div class="container w-52 h-40 mx-5 my-4">
+    <a
+      href="/show/posts/:carid"
+      class="w-full border rounded-lg overflow-hidden"
+    >
+      <div class="h-40 w-52">
+        <img
+          src="/images/uploads/<%= elem.image %>"
+          class="w-full h-full object-cover"
+          alt="..."
+        />
+      </div>
+      <div class="p-4">
+        <a class="font-bold capitalize" href="/show/posts">all posts</a>
+        <h5
+          class="text-sm text-gray-500 font-semibold tracking-widest mb-2 uppercase"
+        >
+          <%= elem.title %>
+        </h5>
+        <!-- <h6 class="font-medium text-gray-500"><%= user.posts.length %> pins</h6> -->
+      </div>
+    </a>
+  </div>
+  <% }) %>
+</div>
+
+<% include ./partials/footer.ejs %>
